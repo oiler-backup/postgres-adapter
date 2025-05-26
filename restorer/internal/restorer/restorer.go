@@ -63,7 +63,7 @@ func (r Restorer) Restore(ctx context.Context) error {
 
 	output, err := cmd.CombinedOutput()
 	if err != nil {
-		return fmt.Errorf("failed executing pg_dump: %+v\n.Output:%s", err, string(output))
+		return fmt.Errorf("failed executing pg_restore: %+v\n.Output:%s", err, string(output))
 	}
 	return nil
 }
