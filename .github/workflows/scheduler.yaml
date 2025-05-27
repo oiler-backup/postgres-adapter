@@ -3,8 +3,8 @@ name: Build and Push Scheduler Image
 on:
   push:
     branches: [ main ]
-    # paths:
-    #   - 'scheduler/**'
+    paths:
+      - 'scheduler/**'
 
 jobs:
   build-and-push:
