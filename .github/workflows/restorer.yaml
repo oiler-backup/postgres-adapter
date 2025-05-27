@@ -22,6 +22,6 @@ jobs:
       - name: Build and push restorer image
         run: |
           RESTORE_VERSION=$(cat restorer/VERSION)
-          docker build --no-cache --tag ${DOCKER_USERNAME}/postgres-restorer:${RESTORE_VERSION} ./restorer
-          docker tag ${DOCKER_USERNAME}/postgres-restorer:${RESTORE_VERSION} ${DOCKER_USERNAME}/postgres-restorer:latest
-          docker push --all-tags ${DOCKER_USERNAME}/postgres-restorer
+          docker build --no-cache --tag ${secrets.DOCKER_USERNAME}/postgres-restorer:${RESTORE_VERSION} ./restorer
+          docker tag ${secrets.DOCKER_USERNAME}/postgres-restorer:${RESTORE_VERSION} ${secrets.DOCKER_USERNAME}/postgres-restorer:latest
+          docker push --all-tags ${secrets.DOCKER_USERNAME}/postgres-restorer
