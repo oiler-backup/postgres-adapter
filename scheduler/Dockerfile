@@ -7,8 +7,6 @@ RUN go build -o backup-app .
 
 FROM alpine:latest
 
-RUN apk add --no-cache postgresql-client
-
 COPY --from=builder /app/backup-app /usr/local/bin/backup-app
 
 ENTRYPOINT ["backup-app"]
