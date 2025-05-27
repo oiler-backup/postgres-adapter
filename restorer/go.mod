@@ -84,6 +84,6 @@ require (
 require (
 	github.com/caarlos0/env/v11 v11.3.1
 	github.com/lib/pq v1.10.9
-	github.com/oiler-backup/base v0.0.0-20250525155244-7482c9fc7bb7
+	github.com/oiler-backup/base v0.0.0-20250527171044-5208e846cdb4
 	github.com/testcontainers/testcontainers-go v0.37.0
 )
