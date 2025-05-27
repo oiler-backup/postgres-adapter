@@ -20,7 +20,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push scheduler image
-        env: DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
           SCHEDULER_VERSION=$(cat scheduler/VERSION)
           docker build --no-cache --tag "$DOCKER_USERNAME"/postgres-scheduler:${SCHEDULER_VERSION} ./scheduler

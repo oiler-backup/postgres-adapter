@@ -20,7 +20,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push restorer image
-        env: DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
           RESTORE_VERSION=$(cat restorer/VERSION)
           docker build --no-cache --tag "$DOCKER_USERNAME"/postgres-restorer:${RESTORE_VERSION} ./restorer

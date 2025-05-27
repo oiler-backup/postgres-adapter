@@ -20,7 +20,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push backuper image
-        env: DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         run: |
           BACKUP_VERSION=$(cat backuper/VERSION)
           docker build --no-cache --tag "$DOCKER_USERNAME"/postgres-backuper:${BACKUP_VERSION} ./backuper
