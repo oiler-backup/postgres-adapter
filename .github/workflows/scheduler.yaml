@@ -22,6 +22,6 @@ jobs:
       - name: Build and push scheduler image
         run: |
           SCHEDULER_VERSION=$(cat scheduler/VERSION)
-          docker build --no-cache --tag ${DOCKER_USERNAME}/postgres-scheduler:${SCHEDULER_VERSION} ./scheduler
-          docker tag ${DOCKER_USERNAME}/postgres-scheduler:${SCHEDULER_VERSION} ${DOCKER_USERNAME}/postgres-scheduler:latest
-          docker push --all-tags ${DOCKER_USERNAME}/postgres-scheduler
+          docker build --no-cache --tag ${secrets.DOCKER_USERNAME}/postgres-scheduler:${SCHEDULER_VERSION} ./scheduler
+          docker tag ${secrets.DOCKER_USERNAME}/postgres-scheduler:${SCHEDULER_VERSION} ${secrets.DOCKER_USERNAME}/postgres-scheduler:latest
+          docker push --all-tags ${secrets.DOCKER_USERNAME}/postgres-scheduler
