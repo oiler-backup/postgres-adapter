@@ -66,6 +66,7 @@ func main() {
 		mustProccessErrors("Failed to open backupFile: %+v", err)
 	}
 
+	start := time.Now()
 	// Download the backup file from S3.
 	err = downloader.Download(ctx, cfg.S3BucketName, cfg.DbName, cfg.BackupRevision, backupFile)
 	if err != nil {
@@ -79,7 +80,8 @@ func main() {
 	}
 
 	// Report the successful restoration status.
-	err = metricsReporter.ReportRestoreStatus(ctx, backupInfo, true, time.Now().Unix())
+	timeElapsed := time.Since(start)
+	err = metricsReporter.ReportRestoreStatus(ctx, backupInfo, true, int64(timeElapsed.Milliseconds()))
 	if err != nil {
 		mustProccessErrors("Failed to report successful status", err)
 	}
