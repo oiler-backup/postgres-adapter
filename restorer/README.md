@@ -16,10 +16,13 @@ To use the `restorer` package, you need to set the required environment variable
 - `DB_USER`: Username for the PostgreSQL database.
 - `DB_PASSWORD`: Password for the PostgreSQL database.
 - `DB_NAME`: Name of the database to restore.
+
 - `CORE_ADDR`: URI of the Kubernetes Operator core.
+
 - `S3_ENDPOINT`: Endpoint of the S3 service.
 - `S3_ACCESS_KEY`: Access key for S3.
 - `S3_SECRET_KEY`: Secret key for S3.
 - `S3_BUCKET_NAME`: Name of the S3 bucket where the backup is stored.
+
 - `BACKUP_REVISION`: Revision of the backup to restore.
 - `SECURE`: Boolean flag to enable or disable TLS/SSL encryption (default: false).
