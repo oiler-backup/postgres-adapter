@@ -97,7 +97,7 @@ func Test_Redtore_InvalidDump(t *testing.T) {
 	)
 
 	err = r.Restore(ctx)
-	require.ErrorContains(t, err, "failed executing mysql restore:")
+	require.ErrorContains(t, err, "failed to connect to database")
 }
 
 func Test_Redtore_InvalidDBHost(t *testing.T) {
